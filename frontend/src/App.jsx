@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Feed from './pages/Feed';
 import CreatePost from './pages/CreatePost';
 import Profile from './pages/Profile';
+import Jokes from './pages/Jokes';
 import { setAuthToken } from './api';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <div className="space-x-4">
           <Link to="/">Feed</Link>
           <Link to="/create">Create</Link>
+          <Link to="/jokes">Jokes</Link>
           <button onClick={logout} className="text-red-500">Logout</button>
         </div>
       </nav>
@@ -38,6 +40,7 @@ function App() {
           <Route path="/register" element={<Register onRegister={(t)=>{setToken(t)}}/>} />
           <Route path="/login" element={<Login onLogin={(t)=>{localStorage.setItem('token', t); setToken(t);}}/>} />
           <Route path="/u/:username" element={<Profile />} />
+          <Route path="/jokes" element={<Jokes />} />
         </Routes>
       </main>
     </div>
